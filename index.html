@@ -518,6 +518,11 @@ footer>div>span:last-child{grid-column:1/-1}
 #research article div[data-idx]>div>div:last-child>span:first-child{width:100%}
 #research article div[data-idx]>div>div:last-child>span[style*="opacity"]{display:none}
 }
+@media (max-width:360px){
+[data-screen-label="Top nav"] nav{gap:0 !important}
+[data-screen-label="Top nav"] nav>a,[data-screen-label="Top nav"] nav [data-dd]>a{padding:7px !important}
+[data-screen-label="Top nav"] nav>button{margin-left:2px}
+}
 
 /* Interactive research illustrations, using the homepage's existing tokens. */
 .research-demo{overflow:visible;margin:10px 0 18px;min-width:0}
