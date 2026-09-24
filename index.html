@@ -455,9 +455,24 @@ a:hover{text-decoration:underline;text-underline-offset:3px;text-decoration-thic
 .section-header>.section-note{margin-top:16px}
 #news>.section-header,#honors>.section-header{margin-bottom:18px}
 #research>.section-header{margin-bottom:calc(26px - var(--pc-gap))}
-.profile-links{display:flex;flex-wrap:wrap;align-items:center;gap:6px 20px;font-family:var(--sans);font-size:13px;line-height:1.5;border-top:1px solid var(--line);padding-top:12px}
-.profile-links a{display:inline-flex;align-items:center;padding:3px 0;white-space:nowrap;scroll-margin-top:90px}
-.profile-links a:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:2px}
+.social-links{display:flex;align-items:center;flex-wrap:nowrap;gap:10px;--social-bg:var(--pc-bg);--social-border:var(--line);--social-color:var(--accent);--social-hover:var(--tint);--social-hover-color:var(--ink)}
+.profile-links{border-top:1px solid var(--line);padding-top:14px}
+.social-link{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;flex:0 0 44px;width:44px;height:44px;padding:0;border:1px solid var(--social-border);border-radius:11px;background:var(--social-bg);color:var(--social-color);scroll-margin-top:90px;transition:color .15s,background .15s,border-color .15s;touch-action:manipulation}
+.social-link svg{display:block;width:21px;height:21px;flex:none;pointer-events:none}
+.social-link .social-icon--email{width:24px;height:24px}
+.social-link:hover{color:var(--social-hover-color);background:var(--social-hover);border-color:currentColor;text-decoration:none}
+.social-link:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.footer-links{--social-bg:transparent;--social-border:rgba(211,220,215,.25);--social-color:var(--footer-ink);--social-hover:rgba(255,255,255,.08);--social-hover-color:var(--footer-title)}
+.theme-toggle{position:absolute;right:40px;top:50%;transform:translateY(-50%);box-sizing:border-box;width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--muted);cursor:pointer;padding:0;touch-action:manipulation;transition:color .15s,background .15s,border-color .15s}
+.theme-toggle:hover{color:var(--ink);background:var(--hov);border-color:var(--rail)}
+.theme-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.theme-toggle svg{display:block;width:19px;height:19px;grid-area:1/1;pointer-events:none}
+.theme-toggle .theme-toggle__sun,html[data-theme="dark"] .theme-toggle .theme-toggle__moon{display:none}
+html[data-theme="dark"] .theme-toggle .theme-toggle__sun{display:block}
+.abstract-toggle{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:32px;box-sizing:border-box;padding:4px 9px;border:1px solid var(--line);border-radius:7px;background:transparent;color:var(--accent);font:inherit;line-height:1.4;vertical-align:middle;text-decoration:none;cursor:pointer;touch-action:manipulation;transition:color .15s,background .15s,border-color .15s}
+.abstract-toggle svg{display:block;width:14px;height:14px;flex:none;pointer-events:none}
+.abstract-toggle:hover{color:var(--ink);background:var(--hov);border-color:var(--rail)}
+.abstract-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
 
 /* Keep the reference's three-panel composition; narrow screens can pan it. */
@@ -486,6 +501,9 @@ footer>div{padding:26px 20px 24px !important}
 /* ---- responsive: phone ≤560px ---- */
 @media (max-width:560px){
 :root{--pc-padx:14px;--pc-pady:13px}
+footer>div{display:grid !important;grid-template-columns:minmax(0,1fr) auto;gap:14px 12px !important;align-items:center !important}
+footer>div>span:last-child{grid-column:1/-1}
+.abstract-toggle{min-height:36px;padding:6px 10px}
 #news li,#honors li{grid-template-columns:minmax(0,1fr) !important;gap:2px 0 !important;padding:11px 0 !important}
 #news li>span:first-child,#honors li>span:first-child{padding-top:0 !important}
 [style*="min(52%"]{width:min(78%,340px) !important}
@@ -566,7 +584,7 @@ footer>div{padding:26px 20px 24px !important}
 [data-export-hover="h4"]:hover{background:var(--hov) !important;color:var(--ink) !important;text-decoration:none !important}
 [data-export-hover="h5"]:hover{background:var(--hov) !important;color:var(--ink) !important;text-decoration:none !important}
 [data-export-hover="h6"]:hover{text-decoration:none !important;color:var(--ink) !important;background:var(--hov) !important}
-[data-export-hover="h7"]:hover{color:var(--ink) !important;border-color:var(--muted2) !important}
+[data-export-hover="h7"]:hover{border-color:var(--rail) !important}
 [data-export-hover="h8"]:hover{border-color:var(--rail) !important}
 [data-export-hover="h9"]:hover{border-color:var(--rail) !important}
 [data-export-hover="h10"]:hover{border-color:var(--rail) !important}
@@ -574,10 +592,6 @@ footer>div{padding:26px 20px 24px !important}
 [data-export-hover="h12"]:hover{border-color:var(--rail) !important}
 [data-export-hover="h13"]:hover{border-color:var(--rail) !important}
 [data-export-hover="h14"]:hover{border-color:var(--rail) !important}
-[data-export-hover="h15"]:hover{border-color:var(--rail) !important}
-[data-export-hover="h16"]:hover{color:var(--footer-title) !important;text-decoration:underline !important}
-[data-export-hover="h17"]:hover{color:var(--footer-title) !important;text-decoration:underline !important}
-[data-export-hover="h18"]:hover{color:var(--footer-title) !important;text-decoration:underline !important}
 </style>
 </head>
 <body>
@@ -597,7 +611,10 @@ footer>div{padding:26px 20px 24px !important}
       </div>
     </div>
     <a href="#honors" data-active="off" style="color:var(--muted);padding:8px 14px;border-radius:999px;transition:color .15s,background .15s" data-export-hover="h6">Grants</a>
-    <button data-action="toggleTheme" title="Switch to dark mode" style="position:absolute;right:40px;top:50%;transform:translateY(-50%);width:30px;height:30px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--muted2);font-size:13px;line-height:1;cursor:pointer;padding:0;transition:color .15s,border-color .15s" data-export-hover="h7">☾</button>
+    <button class="theme-toggle" type="button" data-action="toggleTheme" title="Switch to dark mode" aria-label="Switch to dark mode">
+      <svg class="theme-toggle__moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/></svg>
+      <svg class="theme-toggle__sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+    </button>
   </nav>
 </div>
 <div style="max-width:1140px;margin:0 auto;padding:52px 40px 56px;display:flex;flex-wrap:wrap;gap:72px;align-items:flex-start">
@@ -614,10 +631,10 @@ footer>div{padding:26px 20px 24px !important}
       </div>
     </div>
     <p style="margin:0;padding:12px 15px 12px 16px;border-left:3px solid var(--mustard);border-radius:10px;background:var(--tint);font-size:14px;line-height:1.55;color:var(--muted);text-wrap:pretty">Towards a self-driving optimisation laboratory for scientific discovery.</p>
-    <nav class="profile-links" aria-label="Contact links">
-      <a id="contact" href="#contact" data-email="mingyu.huang [at] stx.ox.ac.uk" data-action="email" title="mingyu.huang [at] stx.ox.ac.uk">Email</a>
-      <a href="https://github.com/EvenStarArwen" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://scholar.google.com/citations?user=MPEjwKYAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+    <nav class="profile-links social-links" aria-label="Contact links">
+      <a class="social-link" href="#contact" aria-label="Email" id="contact" data-email="mingyu.huang [at] stx.ox.ac.uk" data-action="email" title="Email: mingyu.huang [at] stx.ox.ac.uk"><svg class="social-icon social-icon--email" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></a>
+      <a class="social-link" href="https://github.com/EvenStarArwen" aria-label="GitHub" target="_blank" rel="noopener" title="GitHub"><svg class="social-icon social-icon--github" aria-hidden="true" focusable="false" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+      <a class="social-link" href="https://scholar.google.com/citations?user=MPEjwKYAAAAJ&amp;hl=en" aria-label="Google Scholar" target="_blank" rel="noopener" title="Google Scholar"><svg class="social-icon social-icon--google-scholar" aria-hidden="true" focusable="false" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg></a>
     </nav>
   </aside>
 
@@ -2873,7 +2890,7 @@ footer>div{padding:26px 20px 24px !important}
 
 
       <p class="section-note">* equal contribution</p>
-<article style="background:var(--pc-bg);border:1px solid var(--pc-bd);border-top:1px solid var(--pc-bdt);border-radius:var(--pc-r);overflow:hidden;transition:border-color .15s ease" data-export-hover="h8">
+<article style="background:var(--pc-bg);border:1px solid var(--pc-bd);border-top:1px solid var(--pc-bdt);border-radius:var(--pc-r);overflow:hidden;transition:border-color .15s ease" data-export-hover="h7">
   <div data-action="toggle" data-idx="1" style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:18px;align-items:start;padding:var(--pc-pady) var(--pc-padx);cursor:pointer"><div class="paper-icon" data-paper-icon="biological-landscape" style="width:72px;height:72px;flex:none"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="72" height="72" aria-hidden="true" focusable="false" style="display:block;width:100%;height:100%;color:var(--illo-ink, #5c6b45)"><rect x="0" y="0" width="24" height="24" rx="6" fill="var(--illo, #edf1e9)"/><g data-icon-art=""><g transform="translate(12 12) scale(.5556) translate(-12 -12)"><g transform="translate(12 12) scale(1.12) translate(-12 -12)"><g transform="rotate(-38 12 12)"><path d="M6.08 6.72 L5.80 6.44 L5.97 6.15 L6.56 5.90 L7.54 5.73 L8.84 5.67 L10.36 5.76 L12.00 6.00 L13.64 6.40 L15.16 6.97 L16.46 7.67 L17.44 8.49 L18.03 9.38 L18.20 10.31 L17.92 11.24 L17.92 14.44 L18.20 13.51 L18.03 12.58 L17.44 11.69 L16.46 10.87 L15.16 10.17 L13.64 9.60 L12.00 9.20 L10.36 8.96 L8.84 8.87 L7.54 8.93 L6.56 9.10 L5.97 9.35 L5.80 9.64 L6.08 9.92Z" fill="var(--illo-tint, #c3cbb2)"/><path d="M6.08 14.32 L5.80 14.04 L5.97 13.75 L6.56 13.50 L7.54 13.33 L8.84 13.27 L10.36 13.36 L12.00 13.60 L13.64 14.00 L15.16 14.57 L16.46 15.27 L17.44 16.09 L18.03 16.98 L18.20 17.91 L17.92 18.84 L17.92 22.04 L18.20 21.11 L18.03 20.18 L17.44 19.29 L16.46 18.47 L15.16 17.77 L13.64 17.20 L12.00 16.80 L10.36 16.56 L8.84 16.47 L7.54 16.53 L6.56 16.70 L5.97 16.95 L5.80 17.24 L6.08 17.52Z" fill="var(--illo-tint, #c3cbb2)"/><path d="M18.20 2.60 L18.04 3.38 L17.59 4.14 L16.85 4.85 L15.87 5.48 L14.69 6.03 L13.38 6.47 L12.00 6.80 L10.62 7.01 L9.31 7.12 L8.13 7.11 L7.15 7.02 L6.41 6.86 L5.96 6.64 L5.80 6.40 L5.80 9.60 L5.96 9.84 L6.41 10.06 L7.15 10.22 L8.13 10.31 L9.31 10.32 L10.62 10.21 L12.00 10.00 L13.38 9.67 L14.69 9.23 L15.87 8.68 L16.85 8.05 L17.59 7.34 L18.04 6.58 L18.20 5.80Z" fill="var(--illo-ink, #5c6b45)"/><path d="M18.20 10.20 L18.04 10.98 L17.59 11.74 L16.85 12.45 L15.87 13.08 L14.69 13.63 L13.38 14.07 L12.00 14.40 L10.62 14.61 L9.31 14.72 L8.13 14.71 L7.15 14.62 L6.41 14.46 L5.96 14.24 L5.80 14.00 L5.80 17.20 L5.96 17.44 L6.41 17.66 L7.15 17.82 L8.13 17.91 L9.31 17.92 L10.62 17.81 L12.00 17.60 L13.38 17.27 L14.69 16.83 L15.87 16.28 L16.85 15.65 L17.59 14.94 L18.04 14.18 L18.20 13.40Z" fill="var(--illo-ink, #5c6b45)"/><path d="M18.20 17.80 L18.04 18.58 L17.59 19.34 L16.85 20.05 L15.87 20.68 L14.69 21.23 L13.38 21.67 L12.00 22.00 L10.62 22.21 L9.31 22.32 L8.13 22.31 L7.15 22.22 L6.41 22.06 L5.96 21.84 L5.80 21.60 L5.80 24.80 L5.96 25.04 L6.41 25.26 L7.15 25.42 L8.13 25.51 L9.31 25.52 L10.62 25.41 L12.00 25.20 L13.38 24.87 L14.69 24.43 L15.87 23.88 L16.85 23.25 L17.59 22.54 L18.04 21.78 L18.20 21.00Z" fill="var(--illo-ink, #5c6b45)"/></g></g></g></g></svg></div><div style="display:flex;flex-direction:column;gap:7px;min-width:0">
     <div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase">
       <span style="color:var(--accent);letter-spacing:.045em"><span data-vf>Neural Information Processing Systems (NeurIPS)</span><span data-vs style="display:none">NeurIPS</span></span>
@@ -2888,18 +2905,18 @@ footer>div{padding:26px 20px 24px !important}
       <span style="opacity:.5">&middot;</span>
               <a href="https://neurips.cc/virtual/2025/poster/121713" target="_blank" rel="noopener">Paper</a>
               <a href="https://github.com/COLA-Laboratory/GraphFLA" target="_blank" rel="noopener">Code</a>
-              <span style="color:var(--accent);cursor:pointer;display:inline-flex;align-items:baseline;gap:5px;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px">Abstract<span data-chev="closed">▾</span></span>
+              <button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-1">Abstract<svg data-chev="closed" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m4 6 4 4 4-4"/></svg></button>
             
     </div>
   </div></div>
-  <div data-abs="closed"><div><div style="padding:0 var(--pc-padx) var(--pc-pady)">
+  <div id="abstract-1" data-abs="closed"><div><div style="padding:0 var(--pc-padx) var(--pc-pady)">
       <div style="background:var(--well);border-radius:14px;padding:18px 22px;max-width:76ch">
         <p style="margin:0;font-family:var(--sans);font-size:13.5px;line-height:1.68;color:var(--muted);text-wrap:pretty">Machine learning models increasingly map biological sequence-fitness landscapes to predict mutational effects. Effective evaluation of these models requires benchmarks curated from empirical data. Despite their impressive scales, existing benchmarks lack topographical information regarding the underlying fitness landscapes, which hampers interpretation and comparison of model performance beyond averaged scores. Here, we introduce GraphFLA, a Python framework that constructs and analyzes fitness landscapes from diverse modalities (DNA, RNA, protein, and beyond.), accommodating datasets up to millions of mutants. GraphFLA calculates 20 biologically relevant features that characterize 4 fundamental aspects of landscape topography. By applying GraphFLA to over 5,300 landscapes from ProteinGym, RNAGym, and CIS-BP, we demonstrate its utility in interpreting and comparing the performance of dozens of fitness prediction models, highlighting factors influencing model accuracy and respective advantages of different models. Additionally, we release 155 combinatorially complete empirical fitness landscapes, encompassing over 2.2 million sequences across various modalities. All the codes and datasets are available at https://github.com/COLA-Laboratory/GraphFLA.</p>
       </div>
     </div></div></div>
 </article>
 
-      <article style="background:var(--pc-bg);border:1px solid var(--pc-bd);border-top:1px solid var(--pc-bdt);border-radius:var(--pc-r);overflow:hidden;transition:border-color .15s ease" data-export-hover="h9">
+      <article style="background:var(--pc-bg);border:1px solid var(--pc-bd);border-top:1px solid var(--pc-bdt);border-radius:var(--pc-r);overflow:hidden;transition:border-color .15s ease" data-export-hover="h8">
   <div data-action="toggle" data-idx="2" style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:18px;align-items:start;padding:var(--pc-pady) var(--pc-padx);cursor:pointer"><div class="paper-icon" data-paper-icon="configuration-landscape" style="width:72px;height:72px;flex:none"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="72" height="72" aria-hidden="true" focusable="false" style="display:block;width:100%;height:100%;color:var(--illo-ink, #5c6b45)"><rect x="0" y="0" width="24" height="24" rx="6" fill="var(--illo, #edf1e9)"/><g data-icon-art=""><g transform="translate(12 12) scale(.5556) translate(-12 -12)"><rect x="3" y="5.8" width="18" height="2.4" rx="1.2" fill="var(--illo-tint, #c3cbb2)"/><rect x="3" y="10.8" width="18" height="2.4" rx="1.2" fill="var(--illo-tint, #c3cbb2)"/><rect x="3" y="15.8" width="18" height="2.4" rx="1.2" fill="var(--illo-tint, #c3cbb2)"/><rect x="3" y="5.8" width="7" height="2.4" rx="1.2" fill="var(--illo-ink, #5c6b45)"/><rect x="3" y="10.8" width="12.5" height="2.4" rx="1.2" fill="var(--illo-ink, #5c6b45)"/><rect x="3" y="15.8" width="4.5" height="2.4" rx="1.2" fill="var(--illo-ink, #5c6b45)"/><circle cx="9.5" cy="7" r="2.6" fill="var(--illo-ink, #5c6b45)"/><circle cx="15" cy="12" r="2.6" fill="var(--illo-ink, #5c6b45)"/><circle cx="7.5" cy="17" r="2.6" fill="var(--illo-ink, #5c6b45)"/><circle cx="9.5" cy="7" r="1" fill="var(--illo, #edf1e9)"/><circle cx="15" cy="12" r="1" fill="var(--illo, #edf1e9)"/><circle cx="7.5" cy="17" r="1" fill="var(--illo, #edf1e9)"/></g></g></svg></div><div style="display:flex;flex-direction:column;gap:7px;min-width:0">
     <div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase">
       <span style="color:var(--accent);letter-spacing:.045em"><span data-vf>International Symposium on Software Testing and Analysis (ISSTA)</span><span data-vs style="display:none">ISSTA</span></span>
@@ -2913,18 +2930,18 @@ footer>div{padding:26px 20px 24px !important}
       <span style="opacity:.5">&middot;</span>
               <a href="https://dl.acm.org/doi/10.1145/3728954" target="_blank" rel="noopener">Paper</a>
               <a href="https://github.com/COLA-Laboratory/GraphFLA" target="_blank" rel="noopener">Code</a>
-              <span style="color:var(--accent);cursor:pointer;display:inline-flex;align-items:baseline;gap:5px;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px">Abstract<span data-chev="closed">▾</span></span>
+              <button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-2">Abstract<svg data-chev="closed" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m4 6 4 4 4-4"/></svg></button>
             
     </div>
   </div></div>
-  <div data-abs="closed"><div><div style="padding:0 var(--pc-padx) var(--pc-pady)">
+  <div id="abstract-2" data-abs="closed"><div><div style="padding:0 var(--pc-padx) var(--pc-pady)">
       <div style="background:var(--well);border-radius:14px;padding:18px 22px;max-width:76ch">
         <p style="margin:0;font-family:var(--sans);font-size:13.5px;line-height:1.68;color:var(--muted);text-wrap:pretty">Modern software systems are often highly configurable to tailor varied requirements from diverse stakeholders. Understanding the mapping between configurations and the desired performance attributes plays a fundamental role in advancing the controllability and tuning of the underlying system, yet has long been a dark hole of knowledge due to its black-box nature. While there have been previous efforts in performance analysis for these systems, they analyze the configurations as isolated data points without considering their inherent spatial relationships. This renders them incapable of interrogating many important aspects of the configuration space like local optima. In this work, we advocate a novel perspective to rethink performance analysis&mdash;modeling the configuration space as a structured &ldquo;landscape&rdquo;. To support this proposition, we utilized GraphFLA, an open-source, graph data mining empowered fitness landscape analysis (FLA) framework. By applying this framework to 86M benchmarked configurations from 32 running workloads of 3 real-world systems, we arrived at 6 main findings, which together constitute a holistic picture of the landscape topography that could have implications on both configuration tuning and performance modeling.</p>
       </div>
     </div></div></div>
 </article>
 
-      <article style="background:var(--pc-bg);border:1px solid var(--pc-bd);border-top:1px solid var(--pc-bdt);border-radius:var(--pc-r);overflow:hidden;transition:border-color .15s ease" data-export-hover="h10">
+      <article style="background:var(--pc-bg);border:1px solid var(--pc-bd);border-top:1px solid var(--pc-bdt);border-radius:var(--pc-r);overflow:hidden;transition:border-color .15s ease" data-export-hover="h9">
   <div data-action="toggle" data-idx="3" style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:18px;align-items:start;padding:var(--pc-pady) var(--pc-padx);cursor:pointer"><div class="paper-icon" data-paper-icon="hyperparameter-basin" style="width:72px;height:72px;flex:none"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="72" height="72" aria-hidden="true" focusable="false" style="display:block;width:100%;height:100%;color:var(--illo-ink, #5c6b45)"><rect x="0" y="0" width="24" height="24" rx="6" fill="var(--illo, #edf1e9)"/><g data-icon-art=""><g transform="translate(12 12) scale(.5556) translate(-12 -12)"><path d="M3 5.5C7 5.5 8 17 12 17s5-11.5 9-11.5V20H3z" fill="var(--illo-tint, #c3cbb2)"/><path d="M3 5.5C7 5.5 8 17 12 17s5-11.5 9-11.5" fill="none" stroke="var(--illo-ink, #5c6b45)" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17" r="2.9" fill="var(--illo, #edf1e9)"/><circle cx="12" cy="17" r="1.9" fill="var(--illo-ink, #5c6b45)" data-icon-node=""/></g></g></svg></div><div style="display:flex;flex-direction:column;gap:7px;min-width:0">
     <div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase">
       <span style="color:var(--accent);letter-spacing:.045em"><span data-vf>ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)</span><span data-vs style="display:none">KDD</span></span>
@@ -2938,11 +2955,11 @@ footer>div{padding:26px 20px 24px !important}
       <span style="opacity:.5">&middot;</span>
               <a href="https://dl.acm.org/doi/10.1145/3690624.3709229" target="_blank" rel="noopener">Paper</a>
               <a href="https://github.com/COLA-Laboratory/GraphFLA" target="_blank" rel="noopener">Code</a>
-              <span style="color:var(--accent);cursor:pointer;display:inline-flex;align-items:baseline;gap:5px;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px">Abstract<span data-chev="closed">▾</span></span>
+              <button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-3">Abstract<svg data-chev="closed" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m4 6 4 4 4-4"/></svg></button>
             
     </div>
   </div></div>
-  <div data-abs="closed"><div><div style="padding:0 var(--pc-padx) var(--pc-pady)">
+  <div id="abstract-3" data-abs="closed"><div><div style="padding:0 var(--pc-padx) var(--pc-pady)">
       <div style="background:var(--well);border-radius:14px;padding:18px 22px;max-width:76ch">
         <p style="margin:0;font-family:var(--sans);font-size:13.5px;line-height:1.68;color:var(--muted);text-wrap:pretty">Previous efforts on hyperparameter optimization (HPO) of machine learning (ML) models predominately focus on algorithmic advances, yet little is known about the topography of the underlying hyperparameter (HP) loss landscape, which plays a fundamental role in governing the search process of HPO. While several works have conducted fitness landscape analysis (FLA) on various ML systems, they are limited to properties of isolated landscape without interrogating the potential structural similarities among landscapes induced on different scenarios. The exploration of such similarities can provide a novel perspective for understanding the mechanism behind modern HPO methods, but has been missing. In this paper, we mapped 1,500 HP loss landscapes of 6 representative ML models on 63 datasets across different fidelity levels, with 11M+ configurations. By conducting exploratory analysis on these landscapes with fine-grained visualizations and dedicated FLA metrics, we observed a similar landscape topography across a wide range of models, datasets, and fidelities, and shed light on the mechanism behind the success of several popular methods in HPO. The artifacts associated with this paper is available at https://github.com/COLA-Laboratory/GraphFLA.</p>
       </div>
@@ -2951,7 +2968,7 @@ footer>div{padding:26px 20px 24px !important}
 
       
 
-      <article style="background:var(--pc-bg);border:1px solid var(--pc-bd);border-top:1px solid var(--pc-bdt);border-radius:var(--pc-r);overflow:hidden;transition:border-color .15s ease" data-export-hover="h11">
+      <article style="background:var(--pc-bg);border:1px solid var(--pc-bd);border-top:1px solid var(--pc-bdt);border-radius:var(--pc-r);overflow:hidden;transition:border-color .15s ease" data-export-hover="h10">
   <div data-action="toggle" data-idx="5" style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:18px;align-items:start;padding:var(--pc-pady) var(--pc-padx);cursor:pointer"><div class="paper-icon" data-paper-icon="landscape-similarity" style="width:72px;height:72px;flex:none"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="72" height="72" aria-hidden="true" focusable="false" style="display:block;width:100%;height:100%;color:var(--illo-ink, #5c6b45)"><rect x="0" y="0" width="24" height="24" rx="6" fill="var(--illo, #edf1e9)"/><g data-icon-art=""><g transform="translate(12 12) scale(.5556) translate(-12 -12)"><path d="M6 6.5 10.5 11.5m0 0 5.5 4M18.5 5l-2.5 11M5.5 17.5l10.5-2M6 6.5 18.5 5" fill="none" stroke="var(--illo-tint, #c3cbb2)" stroke-width="1.8" stroke-linecap="round"/><circle cx="16" cy="15.5" r="4.3" fill="var(--illo-ink, #5c6b45)"/><circle cx="6" cy="6.5" r="2.6" fill="var(--illo-ink, #5c6b45)"/><circle cx="18.5" cy="5" r="2.1" fill="var(--illo-ink, #5c6b45)"/><circle cx="10.5" cy="11.5" r="2.2" fill="var(--illo-ink, #5c6b45)"/><circle cx="5.5" cy="17.5" r="1.9" fill="var(--illo-ink, #5c6b45)"/></g></g></svg></div><div style="display:flex;flex-direction:column;gap:7px;min-width:0">
     <div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase">
       <span style="color:var(--accent);letter-spacing:.045em"><span data-vf>International Joint Conference on Artificial Intelligence (IJCAI)</span><span data-vs style="display:none">IJCAI</span></span>
@@ -2964,11 +2981,11 @@ footer>div{padding:26px 20px 24px !important}
       <span style="color:var(--muted)"><strong style="color:var(--ink);font-weight:600">Mingyu Huang</strong>, Ke Li</span>
       <span style="opacity:.5">&middot;</span>
               <a href="https://www.ijcai.org/proceedings/2023/621" target="_blank" rel="noopener">Paper</a>
-              <span style="color:var(--accent);cursor:pointer;display:inline-flex;align-items:baseline;gap:5px;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px">Abstract<span data-chev="closed">▾</span></span>
+              <button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-5">Abstract<svg data-chev="closed" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m4 6 4 4 4-4"/></svg></button>
             
     </div>
   </div></div>
-  <div data-abs="closed"><div><div style="padding:0 var(--pc-padx) var(--pc-pady)">
+  <div id="abstract-5" data-abs="closed"><div><div style="padding:0 var(--pc-padx) var(--pc-pady)">
       <div style="background:var(--well);border-radius:14px;padding:18px 22px;max-width:76ch">
         <p style="margin:0;font-family:var(--sans);font-size:13.5px;line-height:1.68;color:var(--muted);text-wrap:pretty">One of the most common problem-solving heuristics is by analogy. For a given problem, a solver can be viewed as a strategic walk on its fitness landscape. Thus if a solver works for one problem instance, we expect it will also be effective for other instances whose fitness landscapes essentially share structural similarities with each other. However, due to the black-box nature of combinatorial optimization, it is far from trivial to infer such similarity in real-world scenarios. To bridge this gap, by using local optima network as a proxy of fitness landscapes, this paper proposed to leverage graph data mining techniques to conduct qualitative and quantitative analyses to explore the latent topological structural information embedded in those landscapes. In our experiments, we use the number partitioning problem as the case and our empirical results are inspiring to support the overall assumption of the existence of structural similarity between landscapes within neighboring dimensions. Besides, experiments on simulated annealing demonstrate that the performance of a meta-heuristic solver is similar on structurally similar landscapes.</p>
       </div>
@@ -4964,7 +4981,7 @@ footer>div{padding:26px 20px 24px !important}
 </svg></div></div>
 
 
-      <article style="background:var(--pc-bg);border:1px solid var(--pc-bd);border-top:1px solid var(--pc-bdt);border-radius:var(--pc-r);overflow:hidden;transition:border-color .15s ease" data-export-hover="h12">
+      <article style="background:var(--pc-bg);border:1px solid var(--pc-bd);border-top:1px solid var(--pc-bdt);border-radius:var(--pc-r);overflow:hidden;transition:border-color .15s ease" data-export-hover="h11">
   <div data-action="toggle" data-idx="6" style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:18px;align-items:start;padding:var(--pc-pady) var(--pc-padx);cursor:pointer"><div class="paper-icon" data-paper-icon="genomic-validation" style="width:72px;height:72px;flex:none"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="72" height="72" aria-hidden="true" focusable="false" style="display:block;width:100%;height:100%;color:var(--illo-ink, #5c6b45)"><rect x="0" y="0" width="24" height="24" rx="6" fill="var(--illo, #edf1e9)"/><g data-icon-art=""><g transform="translate(12 12) scale(.5556) translate(-12 -12)"><rect x="8" y="4.6" width="8" height="2" rx="1" fill="var(--illo-tint, #c3cbb2)"/><rect x="9.4" y="7.7" width="5.2" height="2" rx="1" fill="var(--illo-tint, #c3cbb2)"/><rect x="9.4" y="14.3" width="5.2" height="2" rx="1" fill="var(--illo-tint, #c3cbb2)"/><rect x="8" y="17.4" width="8" height="2" rx="1" fill="var(--illo-tint, #c3cbb2)"/><path d="M8 3c0 4.5 8 4.5 8 9s-8 4.5-8 9M16 3c0 4.5-8 4.5-8 9s8 4.5 8 9" fill="none" stroke="var(--illo-ink, #5c6b45)" stroke-width="2.2" stroke-linecap="round"/></g></g></svg></div><div style="display:flex;flex-direction:column;gap:7px;min-width:0">
     <div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase">
       <span style="color:var(--accent);letter-spacing:.045em"><span data-vf>International Conference on Machine Learning (ICML)</span><span data-vs style="display:none">ICML</span></span>
@@ -4978,18 +4995,18 @@ footer>div{padding:26px 20px 24px !important}
       <span style="color:var(--muted)">Shasha Zhou, <strong style="color:var(--ink);font-weight:600">Mingyu Huang</strong>, Ke Li</span>
       <span style="opacity:.5">&middot;</span>
               <a href="https://icml.cc/virtual/2026/poster/67163" target="_blank" rel="noopener">Paper</a>
-              <span style="color:var(--accent);cursor:pointer;display:inline-flex;align-items:baseline;gap:5px;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px">Abstract<span data-chev="closed">▾</span></span>
+              <button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-6">Abstract<svg data-chev="closed" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m4 6 4 4 4-4"/></svg></button>
             
     </div>
   </div></div>
-  <div data-abs="closed"><div><div style="padding:0 var(--pc-padx) var(--pc-pady)">
+  <div id="abstract-6" data-abs="closed"><div><div style="padding:0 var(--pc-padx) var(--pc-pady)">
       <div style="background:var(--well);border-radius:14px;padding:18px 22px;max-width:76ch">
         <p style="margin:0;font-family:var(--sans);font-size:13.5px;line-height:1.68;color:var(--muted);text-wrap:pretty">Advances in machine learning and computational power have unlocked the predictive potential of the human genome, yet biologists increasingly demand that these models also elucidate the underlying biological mechanisms. While interpretable machine learning (IML) techniques have been increasingly applied to bridge this gap, there has been a pervasive reliance on anecdotal validation: the vast majority of research employs a single IML method and reports only isolated successful instances. Through a benchmarking study on transcription factor binding, we demonstrate the risks of current practices. We show that different IML methods can often (1) yield contradictory explanations for identical predictions, (2) fail to localize known regulatory motifs, and (3) do not faithfully reflect the model&rsquo;s internal decision process. In light of this, we argue for a validation framework analogous to clinical trials. Just as trials require rigorous design and the reporting of adverse events, genomic interpretability must move beyond cherry-picked plausibility toward systematic assessment of consistency, faithfulness, and biological validity. To facilitate this, we propose a tiered framework to guide the rigorous evaluation and reporting of genomic IML methods.</p>
       </div>
     </div></div></div>
 </article>
 
-      <article style="background:var(--pc-bg);border:1px solid var(--pc-bd);border-top:1px solid var(--pc-bdt);border-radius:var(--pc-r);overflow:hidden;transition:border-color .15s ease" data-export-hover="h13">
+      <article style="background:var(--pc-bg);border:1px solid var(--pc-bd);border-top:1px solid var(--pc-bdt);border-radius:var(--pc-r);overflow:hidden;transition:border-color .15s ease" data-export-hover="h12">
   <div data-action="toggle" data-idx="7" style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:18px;align-items:start;padding:var(--pc-pady) var(--pc-padx);cursor:pointer"><div class="paper-icon" data-paper-icon="literature-dialogue" style="width:72px;height:72px;flex:none"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="72" height="72" aria-hidden="true" focusable="false" style="display:block;width:100%;height:100%;color:var(--illo-ink, #5c6b45)"><rect x="0" y="0" width="24" height="24" rx="6" fill="var(--illo, #edf1e9)"/><g data-icon-art=""><g transform="translate(12 12) scale(.5556) translate(-12 -12)"><rect x="4" y="3" width="10.5" height="13.5" rx="1.8" fill="var(--illo-tint, #c3cbb2)"/><rect x="7" y="5.5" width="10.5" height="13.5" rx="1.8" fill="var(--illo-tint, #c3cbb2)" stroke="var(--illo, #edf1e9)" stroke-width="1.1"/><path d="M9.8 9.3h5M9.8 12h3.5" fill="none" stroke="var(--illo-ink, #5c6b45)" stroke-width="1.4" stroke-linecap="round"/><path d="M12.5 14h7a2.6 2.6 0 0 1 2.6 2.6v2.3a2.6 2.6 0 0 1-2.6 2.6h-4l-2.6 2v-2h-.4a2.6 2.6 0 0 1-2.6-2.6v-2.3a2.6 2.6 0 0 1 2.6-2.6z" fill="var(--illo-ink, #5c6b45)" stroke="var(--illo, #edf1e9)" stroke-width="1.1" data-icon-page=""/><circle cx="13.8" cy="17.8" r="1" fill="var(--illo, #edf1e9)"/><circle cx="16.1" cy="17.8" r="1" fill="var(--illo, #edf1e9)"/><circle cx="18.4" cy="17.8" r="1" fill="var(--illo, #edf1e9)"/></g></g></svg></div><div style="display:flex;flex-direction:column;gap:7px;min-width:0">
     <div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase">
       <span style="color:var(--accent);letter-spacing:.045em"><span data-vf>International Joint Conference on Artificial Intelligence (IJCAI)</span><span data-vs style="display:none">IJCAI</span></span>
@@ -5003,18 +5020,18 @@ footer>div{padding:26px 20px 24px !important}
       <span style="opacity:.5">&middot;</span>
               <a href="https://www.ijcai.org/proceedings/2025/1262" target="_blank" rel="noopener">Paper</a>
               <a href="#" title="placeholder — link to come">Code</a>
-              <span style="color:var(--accent);cursor:pointer;display:inline-flex;align-items:baseline;gap:5px;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px">Abstract<span data-chev="closed">▾</span></span>
+              <button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-7">Abstract<svg data-chev="closed" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m4 6 4 4 4-4"/></svg></button>
             
     </div>
   </div></div>
-  <div data-abs="closed"><div><div style="padding:0 var(--pc-padx) var(--pc-pady)">
+  <div id="abstract-7" data-abs="closed"><div><div style="padding:0 var(--pc-padx) var(--pc-pady)">
       <div style="background:var(--well);border-radius:14px;padding:18px 22px;max-width:76ch">
         <p style="margin:0;font-family:var(--sans);font-size:13.5px;line-height:1.68;color:var(--muted);text-wrap:pretty">We are living in an era of &ldquo;big literature&rdquo;, where the volume of digital scientific publications is growing exponentially. While offering new opportunities, this also poses challenges for understanding literature landscapes, as traditional manual reviewing is no longer feasible. Recent large language models (LLMs) have shown strong capabilities for literature comprehension, yet they are incapable of offering &ldquo;comprehensive, objective, open and transparent&rdquo; views desired by systematic reviews due to their limited context windows and trust issues like hallucinations. Here we present LitChat, an end-to-end, interactive and conversational literature agent that augments LLM agents with data-driven discovery tools to facilitate literature exploration. LitChat automatically interprets user queries, retrieves relevant sources, constructs knowledge graphs, and employs diverse data-mining techniques to generate evidence-based insights addressing user needs. We illustrate the effectiveness of LitChat via a case study on AI4Health, highlighting its capacity to quickly navigate the users through large-scale literature landscape with data-based evidence that is otherwise infeasible with traditional means.</p>
       </div>
     </div></div></div>
 </article>
 
-      <article style="background:var(--pc-bg);border:1px solid var(--pc-bd);border-top:1px solid var(--pc-bdt);border-radius:var(--pc-r);overflow:hidden;transition:border-color .15s ease" data-export-hover="h14">
+      <article style="background:var(--pc-bg);border:1px solid var(--pc-bd);border-top:1px solid var(--pc-bdt);border-radius:var(--pc-r);overflow:hidden;transition:border-color .15s ease" data-export-hover="h13">
   <div data-action="toggle" data-idx="8" style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:18px;align-items:start;padding:var(--pc-pady) var(--pc-padx);cursor:pointer"><div class="paper-icon" data-paper-icon="plant-knowledge" style="width:72px;height:72px;flex:none"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="72" height="72" aria-hidden="true" focusable="false" style="display:block;width:100%;height:100%;color:var(--illo-ink, #5c6b45)"><rect x="0" y="0" width="24" height="24" rx="6" fill="var(--illo, #edf1e9)"/><g data-icon-art=""><g transform="translate(12 12) scale(.5556) translate(-12 -12)"><path d="M4 20c0-9.5 6.5-15.5 16-16 0 9.5-6 15.5-16 16z" fill="var(--illo-tint, #c3cbb2)"/><path d="M4 20C8.5 15 13.5 10 20 4M9 15l3 1.5M9 15l-1-3.4M13.5 10.5l3.3 1.2M13.5 10.5l-.6-3.5" fill="none" stroke="var(--illo-ink, #5c6b45)" stroke-width="1.4" stroke-linecap="round"/><circle cx="12" cy="16.5" r="1.7" fill="var(--illo-ink, #5c6b45)" data-icon-node=""/><circle cx="8" cy="11.6" r="1.6" fill="var(--illo-ink, #5c6b45)" data-icon-node=""/><circle cx="16.8" cy="11.7" r="1.7" fill="var(--illo-ink, #5c6b45)" data-icon-node=""/><circle cx="12.9" cy="7" r="1.6" fill="var(--illo-ink, #5c6b45)" data-icon-node=""/></g></g></svg></div><div style="display:flex;flex-direction:column;gap:7px;min-width:0">
     <div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase">
       <span style="color:var(--accent);letter-spacing:.045em">Molecular Plant</span>
@@ -5027,18 +5044,18 @@ footer>div{padding:26px 20px 24px !important}
       <span style="color:var(--muted)">Haopeng Yu*, Shasha Zhou*, <strong style="color:var(--ink);font-weight:600">Mingyu Huang*</strong>, Ling Ding, Yuxuan Chen, et al., Yiliang Ding, Ke Li</span>
       <span style="opacity:.5">&middot;</span>
               <a href="https://www.cell.com/molecular-plant/fulltext/S1674-2052(26)00080-8" target="_blank" rel="noopener">Paper</a>
-              <span style="color:var(--accent);cursor:pointer;display:inline-flex;align-items:baseline;gap:5px;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px">Abstract<span data-chev="closed">▾</span></span>
+              <button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-8">Abstract<svg data-chev="closed" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m4 6 4 4 4-4"/></svg></button>
             
     </div>
   </div></div>
-  <div data-abs="closed"><div><div style="padding:0 var(--pc-padx) var(--pc-pady)">
+  <div id="abstract-8" data-abs="closed"><div><div style="padding:0 var(--pc-padx) var(--pc-pady)">
       <div style="background:var(--well);border-radius:14px;padding:18px 22px;max-width:76ch">
         <p style="margin:0;font-family:var(--sans);font-size:13.5px;line-height:1.68;color:var(--muted);text-wrap:pretty">The accelerating growth of plant science knowledge presents a major challenge to extracting accurate, up-to-date knowledge from an increasingly fragmented and domain-specific corpus. General-purpose large language models, while powerful, often misinterpret plant science terminology and lack mechanisms for source traceability. We created PlantScience.ai, a virtual plant biology scientist powered by an automated scientific knowledge graph construction pipeline. PlantScience.ai exhibits expert-level reasoning in plant biology and maintains scholarly rigor inciting the literature. Through continuous learning, it integrates the latest research to ensure that its knowledge base remains current and scientifically robust. Apart from providing the answers to scientific questions, PlantScience.ai can interact with human scientists, follow instructions, and retrieve information with citation awareness, grounding each response in primary sources to ensure accuracy and verifiability. PlantScience.ai marks a pivotal advance toward a collaborative scientific paradigm in which virtual and human plant scientists work synergistically to accelerate discovery while preserving the unique value of human insight. PlantScience.ai is available at https://plantscience.ai.</p>
       </div>
     </div></div></div>
 </article>
 
-      <article style="background:var(--pc-bg);border:1px solid var(--pc-bd);border-top:1px solid var(--pc-bdt);border-radius:var(--pc-r);overflow:hidden;transition:border-color .15s ease" data-export-hover="h15">
+      <article style="background:var(--pc-bg);border:1px solid var(--pc-bd);border-top:1px solid var(--pc-bdt);border-radius:var(--pc-r);overflow:hidden;transition:border-color .15s ease" data-export-hover="h14">
   <div data-action="toggle" data-idx="9" style="display:grid;grid-template-columns:72px minmax(0,1fr);gap:18px;align-items:start;padding:var(--pc-pady) var(--pc-padx);cursor:pointer"><div class="paper-icon" data-paper-icon="medical-fact-checking" style="width:72px;height:72px;flex:none"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="72" height="72" aria-hidden="true" focusable="false" style="display:block;width:100%;height:100%;color:var(--illo-ink, #5c6b45)"><rect x="0" y="0" width="24" height="24" rx="6" fill="var(--illo, #edf1e9)"/><g data-icon-art=""><g transform="translate(12 12) scale(.5556) translate(-12 -12)"><path d="M5.5 5.5 12 12m0 0 6.5 6.5M5.5 5.5v13M18.5 5.5v13" fill="none" stroke="var(--illo-tint, #c3cbb2)" stroke-width="1.7" stroke-linecap="round"/><circle cx="5.5" cy="5.5" r="2.1" fill="var(--illo-tint, #c3cbb2)"/><circle cx="18.5" cy="18.5" r="2.1" fill="var(--illo-tint, #c3cbb2)"/><path d="M5.5 18.5 12 12l6.5-6.5" fill="none" stroke="var(--illo-ink, #5c6b45)" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="12" r="2.4" fill="var(--illo-ink, #5c6b45)" data-icon-node=""/><circle cx="5.5" cy="18.5" r="3.1" fill="var(--illo-ink, #5c6b45)" data-icon-node=""/><path d="M5.5 16.9v3.2M3.9 18.5h3.2" fill="none" stroke="var(--illo, #edf1e9)" stroke-width="1.2" stroke-linecap="round"/><circle cx="18.5" cy="5.5" r="3.7" fill="var(--illo-ink, #5c6b45)" data-icon-node=""/><path d="m16.7 5.5 1.3 1.3 2.3-2.5" fill="none" stroke="var(--illo, #edf1e9)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></g></g></svg></div><div style="display:flex;flex-direction:column;gap:7px;min-width:0">
     <div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase">
       <span style="color:var(--accent);letter-spacing:.045em"><span data-vf>AAAI Conference on Artificial Intelligence (AAAI)</span><span data-vs style="display:none">AAAI</span></span>
@@ -5052,11 +5069,11 @@ footer>div{padding:26px 20px 24px !important}
       <span style="color:var(--muted)">Shasha Zhou, <strong style="color:var(--ink);font-weight:600">Mingyu Huang</strong>, Jack Cole, Charles Britton, Ming Yin, Jan Wolber, Ke Li</span>
       <span style="opacity:.5">&middot;</span>
               <a href="https://ojs.aaai.org/index.php/AAAI/article/view/41317" target="_blank" rel="noopener">Paper</a>
-              <span style="color:var(--accent);cursor:pointer;display:inline-flex;align-items:baseline;gap:5px;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px">Abstract<span data-chev="closed">▾</span></span>
+              <button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-9">Abstract<svg data-chev="closed" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m4 6 4 4 4-4"/></svg></button>
             
     </div>
   </div></div>
-  <div data-abs="closed"><div><div style="padding:0 var(--pc-padx) var(--pc-pady)">
+  <div id="abstract-9" data-abs="closed"><div><div style="padding:0 var(--pc-padx) var(--pc-pady)">
       <div style="background:var(--well);border-radius:14px;padding:18px 22px;max-width:76ch">
         <p style="margin:0;font-family:var(--sans);font-size:13.5px;line-height:1.68;color:var(--muted);text-wrap:pretty">The recent proliferation of large language models (LLMs) holds the potential to revolutionize healthcare, with strong capabilities in diverse medical tasks. Yet, deploying LLMs in high-stakes healthcare settings requires rigorous verification and validation to understand any potential harm. This paper investigates the reliability and viability of using medical knowledge graphs (KGs) for the automated factuality evaluation of LLM-generated responses. To ground this investigation, we introduce FAITH, a framework designed to systematically probe the strengths and limitations of this KG-based approach. FAITH operates without reference answers by decomposing responses into atomic claims, linking them to a medical KG, and scoring them based on evidence paths. Experiments on diverse medical tasks with human subjective evaluations demonstrate that KG-grounded evaluation achieves considerably higher correlations with clinician judgments and can effectively distinguish LLMs with varying capabilities. It is also robust to textual variances. The inherent explainability of its scoring can further help users understand and mitigate the limitations of current LLMs. We conclude that while limitations exist, leveraging KGs is a prominent direction for automated factuality assessment in healthcare.</p>
       </div>
@@ -5084,13 +5101,13 @@ footer>div{padding:26px 20px 24px !important}
   </main>
 </div>
 <footer data-screen-label="Footer" style="background:var(--footer-bg);color:var(--footer-ink);margin-top:24px">
-  <div style="max-width:1140px;margin:0 auto;padding:34px 40px 30px;display:flex;flex-wrap:wrap;gap:16px 28px;align-items:baseline;justify-content:space-between;font-family:var(--sans);font-size:12.5px">
+  <div style="max-width:1140px;margin:0 auto;padding:34px 40px 30px;display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify-content:space-between;font-family:var(--sans);font-size:12.5px">
     <span style="font-family:'Newsreader',Georgia,serif;font-size:17.5px;letter-spacing:-.01em;color:var(--footer-title)">Mingyu Huang</span>
-    <div style="display:flex;gap:22px;flex-wrap:wrap">
-      <a href="#contact" data-email="mingyu.huang [at] stx.ox.ac.uk" data-action="email" title="mingyu.huang [at] stx.ox.ac.uk" style="color:var(--footer-ink)" data-export-hover="h16">Email</a>
-      <a href="https://github.com/EvenStarArwen" target="_blank" rel="noopener" style="color:var(--footer-ink)" data-export-hover="h17">GitHub</a>
-      <a href="https://scholar.google.com/citations?user=MPEjwKYAAAAJ&amp;hl=en" target="_blank" rel="noopener" style="color:var(--footer-ink)" data-export-hover="h18">Google Scholar</a>
-    </div>
+    <nav class="footer-links social-links" aria-label="Footer contact links">
+      <a class="social-link" href="#contact" aria-label="Email" data-email="mingyu.huang [at] stx.ox.ac.uk" data-action="email" title="Email: mingyu.huang [at] stx.ox.ac.uk"><svg class="social-icon social-icon--email" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></a>
+      <a class="social-link" href="https://github.com/EvenStarArwen" aria-label="GitHub" target="_blank" rel="noopener" title="GitHub"><svg class="social-icon social-icon--github" aria-hidden="true" focusable="false" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+      <a class="social-link" href="https://scholar.google.com/citations?user=MPEjwKYAAAAJ&amp;hl=en" aria-label="Google Scholar" target="_blank" rel="noopener" title="Google Scholar"><svg class="social-icon social-icon--google-scholar" aria-hidden="true" focusable="false" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg></a>
+    </nav>
     <span style="color:var(--footer-dim)">© 2026 · Last updated September 2026</span>
   </div>
 </footer>
@@ -5102,7 +5119,6 @@ footer>div{padding:26px 20px 24px !important}
   const themeButton = document.querySelector('[data-action="toggleTheme"]');
   function applyTheme(dark) {
     root.dataset.theme = dark ? 'dark' : 'light';
-    themeButton.textContent = dark ? '☀' : '☾';
     themeButton.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
     themeButton.setAttribute('aria-label', themeButton.title);
   }
@@ -5129,8 +5145,6 @@ footer>div{padding:26px 20px 24px !important}
     const chevron = card.querySelector('[data-chev]');
     const trigger = chevron.parentElement;
     panel.id = 'abstract-' + card.dataset.idx;
-    trigger.setAttribute('role', 'button');
-    trigger.tabIndex = 0;
     trigger.setAttribute('aria-controls', panel.id);
     trigger.setAttribute('aria-expanded', 'false');
     function toggle() {
@@ -5139,9 +5153,6 @@ footer>div{padding:26px 20px 24px !important}
       trigger.setAttribute('aria-expanded', String(open));
     }
     card.addEventListener('click', event => { if (!event.target.closest('a')) toggle(); });
-    trigger.addEventListener('keydown', event => {
-      if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggle(); }
-    });
   });
 
   const dropdown = document.querySelector('[data-dd]');
