@@ -2,6 +2,6 @@
 
 Academic homepage: https://evenstararwen.github.io/
 
-This repository contains the static, self-contained website generated from the maintained homepage source. GitHub Pages publishes the root of the `main` branch. The `.nojekyll` file disables Jekyll processing.
+This repository contains the static website generated from the maintained homepage source. Fonts are served separately from `assets/fonts/` to keep the HTML small and crawlable. GitHub Pages publishes the root of the `main` branch. The `.nojekyll` file disables Jekyll processing.
 
-To update the site, regenerate `index.html` from the source project, commit the updated file, and push to `main`.
+To update the site, regenerate the page from the source project, commit `index.html`, font assets, `robots.txt` and `sitemap.xml`, and push to `main`.
