@@ -385,11 +385,11 @@
 }
 
 
-:root{--bg:#faf7f0;--landscape-plot-paper:#faf7f0;--landscape-plot-mesh:#454d39;--landscape-low:#f5efdf;--landscape-high:#97b085;--landscape-mesh:#829574;--tint:#f2ece0;--ink:#221f18;--muted:#6b6455;--muted2:#8d8674;--line:#e7e0d0;--rail:#ded5c2;--hov:#eae2d1;--sans:'Hanken Grotesk',-apple-system,ui-sans-serif,system-ui,sans-serif;--serif-text:'Source Serif 4',Georgia,serif;--accent-base:#5c6b45;--accent:var(--accent-base);--pc-bg:#fffdf8;--pc-bd:var(--line);--pc-bdt:var(--line);--pc-r:12px;--pc-padx:20px;--pc-pady:17px;--pc-gap:10px;--well:#f0ebe0;--illo:#f5f1e5;--illo-ink:#77805a;--illo-path:#3f4d28;--nav:#ffffff;--mustard:#b5ba33;--mustard-ink:#2c2f12}
+:root{--bg:#fafafa;--footer-bg:#262c2a;--footer-ink:#d3dcd7;--footer-title:#f1f5f2;--footer-dim:#b0bcb5;--landscape-plot-paper:#fafafa;--landscape-plot-mesh:#454d39;--landscape-low:#edf2e8;--landscape-high:#97b085;--landscape-mesh:#829574;--tint:#f0f2ef;--ink:#24282d;--muted:#4d5660;--muted2:#5f6873;--line:#e0e4e7;--rail:#cbd2d8;--hov:#edf0f2;--sans:'Hanken Grotesk',-apple-system,ui-sans-serif,system-ui,sans-serif;--serif-text:'Source Serif 4',Georgia,serif;--accent-base:#5c6b45;--accent:var(--accent-base);--pc-bg:#ffffff;--pc-bd:var(--line);--pc-bdt:var(--line);--pc-r:12px;--pc-padx:20px;--pc-pady:17px;--pc-gap:10px;--well:#f1f3f5;--illo:#edf1e9;--illo-ink:#62764f;--illo-path:#3f4d28;--nav:#ffffff;--mustard:#b5ba33;--mustard-ink:#2c2f12}
 html[data-pcard="list"]{--pc-bg:transparent;--pc-bd:transparent;--pc-bdt:var(--line);--pc-r:0px;--pc-padx:4px;--pc-pady:15px;--pc-gap:0px}
-html[data-theme="dark"]{--pc-bg:#262319;--mustard:#a8ad3a;--mustard-ink:#1f2108;--well:#2c2a20;--illo:#343126;--illo-ink:#b4bd93;--illo-path:#d2e0a4;--nav:#26231b}
+html[data-theme="dark"]{--pc-bg:#23272c;--mustard:#a8ad3a;--mustard-ink:#1f2108;--well:#2b3036;--illo:#303a32;--illo-ink:#c0ceb0;--illo-path:#d3e1bd;--nav:#202429}
 html[data-theme="dark"][data-pcard="list"]{--pc-bg:transparent}
-html[data-theme="dark"]{--bg:#1e1c17;--landscape-plot-paper:#302f24;--landscape-plot-mesh:#acb896;--landscape-low:#343829;--landscape-high:#a6bc91;--landscape-mesh:#83966f;--tint:#282520;--ink:#ece5d4;--muted:#a09884;--muted2:#867f6d;--line:#39342a;--rail:#443e31;--hov:#3b3629;--accent:color-mix(in oklab,var(--accent-base) 58%,#ece5d4)}
+html[data-theme="dark"]{--bg:#1b1e22;--landscape-plot-paper:#23282d;--landscape-plot-mesh:#bcc9b2;--landscape-low:#303931;--landscape-high:#a2bb91;--landscape-mesh:#8fa380;--tint:#252a2e;--ink:#e8ebef;--muted:#c2c9d1;--muted2:#aab4bf;--line:#3b434c;--rail:#4b5662;--hov:#303842;--accent:color-mix(in srgb,var(--accent-base) 35%,#edf4e8)}
 html{scroll-behavior:smooth}
 html,body{margin:0;padding:0;background:var(--bg)}
 a{color:var(--accent);text-decoration:none}
@@ -534,9 +534,9 @@ footer>div{padding:26px 20px 24px !important}
 [data-export-hover="h13"]:hover{border-color:var(--rail) !important}
 [data-export-hover="h14"]:hover{border-color:var(--rail) !important}
 [data-export-hover="h15"]:hover{border-color:var(--rail) !important}
-[data-export-hover="h16"]:hover{color:#f2eedd !important;text-decoration:underline !important}
-[data-export-hover="h17"]:hover{color:#f2eedd !important;text-decoration:underline !important}
-[data-export-hover="h18"]:hover{color:#f2eedd !important;text-decoration:underline !important}
+[data-export-hover="h16"]:hover{color:var(--footer-title) !important;text-decoration:underline !important}
+[data-export-hover="h17"]:hover{color:var(--footer-title) !important;text-decoration:underline !important}
+[data-export-hover="h18"]:hover{color:var(--footer-title) !important;text-decoration:underline !important}
 </style>
 </head>
 <body>
@@ -568,8 +568,8 @@ footer>div{padding:26px 20px 24px !important}
       <div style="display:flex;flex-direction:column;gap:3px">
         <p style="margin:0;font-family:var(--sans);font-size:14px;font-weight:600;line-height:1.45;color:var(--ink)">University of Oxford</p>
         <p style="margin:0;font-family:var(--sans);font-size:12.5px;line-height:1.55;color:var(--muted)">OATML &middot; Department of Computer Science</p>
-        <p style="margin:0;font-family:var(--sans);font-size:12.5px;line-height:1.55;color:var(--muted2)">EPSRC CDT on Healthcare Data Science &middot; Big Data Institute</p>
-        <p style="margin:0;font-family:var(--sans);font-size:12.5px;line-height:1.55;color:var(--muted2)">GSK&ndash;Oxford Centre in Biostatistics and AI in Medicine (CeBAM)</p>
+        <p style="margin:0;font-family:var(--sans);font-size:12.5px;line-height:1.55;color:var(--muted)">EPSRC CDT on Healthcare Data Science &middot; Big Data Institute</p>
+        <p style="margin:0;font-family:var(--sans);font-size:12.5px;line-height:1.55;color:var(--muted)">GSK&ndash;Oxford Centre in Biostatistics and AI in Medicine (CeBAM)</p>
       </div>
     </div>
     <p style="margin:0;padding:12px 15px 12px 16px;border-left:3px solid var(--mustard);border-radius:10px;background:var(--tint);font-size:14px;line-height:1.55;color:var(--muted);text-wrap:pretty">Towards a self-driving optimisation laboratory for scientific discovery.</p>
@@ -5042,15 +5042,15 @@ footer>div{padding:26px 20px 24px !important}
 
   </main>
 </div>
-<footer data-screen-label="Footer" style="background:#363c2a;color:#cfcab2;margin-top:24px">
+<footer data-screen-label="Footer" style="background:var(--footer-bg);color:var(--footer-ink);margin-top:24px">
   <div style="max-width:1140px;margin:0 auto;padding:34px 40px 30px;display:flex;flex-wrap:wrap;gap:16px 28px;align-items:baseline;justify-content:space-between;font-family:var(--sans);font-size:12.5px">
-    <span style="font-family:'Newsreader',Georgia,serif;font-size:17.5px;letter-spacing:-.01em;color:#f2eedd">Mingyu Huang</span>
+    <span style="font-family:'Newsreader',Georgia,serif;font-size:17.5px;letter-spacing:-.01em;color:var(--footer-title)">Mingyu Huang</span>
     <div style="display:flex;gap:22px;flex-wrap:wrap">
-      <a href="#contact" data-email="mingyu.huang [at] stx.ox.ac.uk" data-action="email" title="mingyu.huang [at] stx.ox.ac.uk" style="color:#cfcab2" data-export-hover="h16">Email</a>
-      <a href="https://github.com/EvenStarArwen" target="_blank" rel="noopener" style="color:#cfcab2" data-export-hover="h17">GitHub</a>
-      <a href="https://scholar.google.com/citations?user=MPEjwKYAAAAJ&amp;hl=en" target="_blank" rel="noopener" style="color:#cfcab2" data-export-hover="h18">Google Scholar</a>
+      <a href="#contact" data-email="mingyu.huang [at] stx.ox.ac.uk" data-action="email" title="mingyu.huang [at] stx.ox.ac.uk" style="color:var(--footer-ink)" data-export-hover="h16">Email</a>
+      <a href="https://github.com/EvenStarArwen" target="_blank" rel="noopener" style="color:var(--footer-ink)" data-export-hover="h17">GitHub</a>
+      <a href="https://scholar.google.com/citations?user=MPEjwKYAAAAJ&amp;hl=en" target="_blank" rel="noopener" style="color:var(--footer-ink)" data-export-hover="h18">Google Scholar</a>
     </div>
-    <span style="color:#9a9478">© 2026 · Last updated September 2026</span>
+    <span style="color:var(--footer-dim)">© 2026 · Last updated September 2026</span>
   </div>
 </footer>
 </div>
