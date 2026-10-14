@@ -431,7 +431,7 @@
 }
 
 
-:root{--bg:#fafafa;--footer-bg:#262c2a;--footer-ink:#d3dcd7;--footer-title:#f1f5f2;--footer-dim:#b0bcb5;--landscape-plot-paper:#fafafa;--landscape-plot-mesh:#454d39;--landscape-low:#edf2e8;--landscape-high:#97b085;--landscape-mesh:#829574;--tint:#f0f2ef;--ink:#24282d;--muted:#4d5660;--muted2:#5f6873;--line:#e0e4e7;--rail:#cbd2d8;--hov:#edf0f2;--sans:'Hanken Grotesk',-apple-system,ui-sans-serif,system-ui,sans-serif;--serif-text:'Source Serif 4',Georgia,serif;--accent-base:#5c6b45;--accent:var(--accent-base);--pc-bg:#ffffff;--pc-bd:var(--line);--pc-bdt:var(--line);--pc-r:12px;--pc-padx:20px;--pc-pady:17px;--pc-gap:10px;--well:#f1f3f5;--illo:#edf1e9;--illo-ink:#5c6b45;--illo-tint:#c3cbb2;--illo-path:#3f4d28;--nav:#ffffff;--mustard:#b5ba33;--mustard-ink:#2c2f12}
+:root{--bg:#ffffff;--footer-bg:#262c2a;--footer-ink:#d3dcd7;--footer-title:#f1f5f2;--footer-dim:#b0bcb5;--landscape-plot-paper:#ffffff;--landscape-plot-mesh:#454d39;--landscape-low:#f1f5ed;--landscape-high:#97b085;--landscape-mesh:#829574;--tint:#f5f6f5;--ink:#24282d;--muted:#4d5660;--muted2:#5f6873;--line:#e0e4e7;--rail:#cbd2d8;--hov:#f0f2f4;--sans:'Hanken Grotesk',-apple-system,ui-sans-serif,system-ui,sans-serif;--serif-text:'Source Serif 4',Georgia,serif;--accent-base:#5c6b45;--accent:var(--accent-base);--pc-bg:#ffffff;--pc-bd:var(--line);--pc-bdt:var(--line);--pc-r:12px;--pc-padx:20px;--pc-pady:17px;--pc-gap:10px;--well:#f5f6f8;--illo:#f2f5ef;--illo-ink:#5c6b45;--illo-tint:#c3cbb2;--illo-path:#3f4d28;--nav:#ffffff;--mustard:#b5ba33;--mustard-ink:#2c2f12}
 html[data-pcard="list"]{--pc-bg:transparent;--pc-bd:transparent;--pc-bdt:var(--line);--pc-r:0px;--pc-padx:4px;--pc-pady:15px;--pc-gap:0px}
 html[data-theme="dark"]{--pc-bg:#23272c;--mustard:#a8ad3a;--mustard-ink:#1f2108;--well:#2b3036;--illo:#303a32;--illo-ink:#c0ceb0;--illo-tint:#4a5642;--illo-path:#d3e1bd;--nav:#202429}
 html[data-theme="dark"][data-pcard="list"]{--pc-bg:transparent}
@@ -527,10 +527,13 @@ footer>div>span:last-child{grid-column:1/-1}
 [data-vs]{display:inline !important}
 #research article div[data-idx]>div>div:last-child>span:first-child{width:100%}
 #research article div[data-idx]>div>div:last-child>span[style*="opacity"]{display:none}
+[data-screen-label="Top nav"] nav{font-size:12.5px !important;gap:0 !important}
+[data-screen-label="Top nav"] nav>a,[data-screen-label="Top nav"] nav [data-dd]>a{padding:7px 6px !important}
+[data-screen-label="Top nav"] nav>button{margin-left:2px}
 }
 @media (max-width:360px){
-[data-screen-label="Top nav"] nav{gap:0 !important}
-[data-screen-label="Top nav"] nav>a,[data-screen-label="Top nav"] nav [data-dd]>a{padding:7px !important}
+[data-screen-label="Top nav"] nav{gap:0 !important;font-size:12px !important;padding:7px 6px !important}
+[data-screen-label="Top nav"] nav>a,[data-screen-label="Top nav"] nav [data-dd]>a{padding:7px 5px !important}
 [data-screen-label="Top nav"] nav>button{margin-left:2px}
 }
 
@@ -660,7 +663,7 @@ footer>div>span:last-child{grid-column:1/-1}
         <div class="section-heading"><h2>About</h2></div>
       </div>
       <p style="margin:0;font-family:var(--serif-text);font-size:16.5px;line-height:1.52;text-wrap:pretty">I am a GSK-funded DPhil student on the <a href="https://www.ox.ac.uk/admissions/graduate/courses/cdt-healthcare-data-science" target="_blank" rel="noopener">Healthcare Data Science CDT</a> at the University of Oxford. I am a member of the <a href="https://oatml.cs.ox.ac.uk/" target="_blank" rel="noopener">Oxford Applied and Theoretical Machine Learning Group (OATML)</a>, supervised by <a href="https://www.cs.ox.ac.uk/people/yarin.gal/website/" target="_blank" rel="noopener">Professor Yarin Gal</a>. My previous research sits at the nexus of black-box optimisation and AI-driven scientific discovery: I characterise the hidden topography of optimisation landscapes, and build agentic systems that synthesise scientific knowledge. I believe a deep understanding of the problem itself and existing literature is a fundamental prerequisite for building effective, autonomous scientific discovery systems like self-driving laboratories.</p>
-      <p style="margin:0;font-family:var(--serif-text);font-size:16.5px;line-height:1.52;text-wrap:pretty">Before Oxford, I completed my MSc in Computer Science at the University of Electronic Science and Technology of China. There I developed <a href="https://colalab.ai/GraphFLA/" target="_blank" rel="noopener">GraphFLA</a>, a toolbox for characterising black-box optimisation problems such as those in protein engineering and hyperparameter optimization, and <a href="https://omniknowledge-demo-agent4sci.netlify.app" target="_blank" rel="noopener">OmniScience</a>, a platform that searches, extracts, verifies, and synthesises knowledge across vast literature corpora. These have led to collaborations with medical experts from GE Healthcare and biologists at the John Innes Centre. I spent the final year of my MSc as a Research Assistant at the University of Exeter under the supervision of <a href="https://www.earlham.ac.uk/profile/ke-li" target="_blank" rel="noopener">Professor Ke Li</a>, and visited the Earlham Institute. Outside research, I enjoy photography and cooking.</p>
+      <p style="margin:0;font-family:var(--serif-text);font-size:16.5px;line-height:1.52;text-wrap:pretty">Before Oxford, I completed my MSc in Computer Science at the University of Electronic Science and Technology of China. There I developed <a href="https://colalab.ai/GraphFLA/" target="_blank" rel="noopener">GraphFLA</a>, a toolbox for characterising black-box optimisation problems such as those in protein engineering and hyperparameter optimization, and <a href="https://colalab.ai/OmniKnowledge/" target="_blank" rel="noopener">OmniKnowledge</a>, a platform that searches, extracts, verifies, and synthesises knowledge across vast literature corpora. These have led to collaborations with medical experts from GE Healthcare and biologists at the John Innes Centre. I spent the final year of my MSc as a Research Assistant at the University of Exeter under the supervision of <a href="https://www.earlham.ac.uk/profile/ke-li" target="_blank" rel="noopener">Professor Ke Li</a>, and visited the Earlham Institute. Outside research, I enjoy photography and cooking.</p>
     </section>
 
     <section id="news" data-screen-label="News" style="scroll-margin-top:78px;display:flex;flex-direction:column;gap:6px">
@@ -668,6 +671,7 @@ footer>div>span:last-child{grid-column:1/-1}
         <div class="section-heading"><h2>News</h2></div>
       </div>
       <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column">
+        <li style="display:grid;grid-template-columns:84px minmax(0,1fr);gap:22px;padding:9px 0;border-bottom:1px solid var(--line)"><span style="font-size:11.5px;color:var(--muted2);font-family:var(--sans);letter-spacing:.03em;padding-top:4px;text-transform:uppercase">Sep 2026</span><span style="font-family:var(--sans);font-size:14.5px;line-height:1.55;text-wrap:pretty">Started my DPhil at the University of Oxford.</span></li>
         <li style="display:grid;grid-template-columns:84px minmax(0,1fr);gap:22px;padding:9px 0;border-bottom:1px solid var(--line)"><span style="font-size:11.5px;color:var(--muted2);font-family:var(--sans);letter-spacing:.03em;padding-top:4px;text-transform:uppercase">Sep 2026</span><span style="font-family:var(--sans);font-size:14.5px;line-height:1.55;text-wrap:pretty">Visiting the Earlham Institute (EI) in Norwich.</span></li>
         <li style="display:grid;grid-template-columns:84px minmax(0,1fr);gap:22px;padding:9px 0;border-bottom:1px solid var(--line)"><span style="font-size:11.5px;color:var(--muted2);font-family:var(--sans);letter-spacing:.03em;padding-top:4px;text-transform:uppercase">Jul 2026</span><span style="font-family:var(--sans);font-size:14.5px;line-height:1.55;text-wrap:pretty">Presented our work on genomic model interpretability as a spotlight poster at ICML 2026 in Seoul.</span></li>
         <li style="display:grid;grid-template-columns:84px minmax(0,1fr);gap:22px;padding:9px 0;border-bottom:1px solid var(--line)"><span style="font-size:11.5px;color:var(--muted2);font-family:var(--sans);letter-spacing:.03em;padding-top:4px;text-transform:uppercase">Feb 2026</span><span style="font-family:var(--sans);font-size:14.5px;line-height:1.55;text-wrap:pretty">Awarded a GSK-funded studentship in the EPSRC CDT in Healthcare Data Science. I look forward to joining Oxford this September.</span></li>
@@ -3010,7 +3014,7 @@ footer>div>span:last-child{grid-column:1/-1}
       <div id="kds" style="scroll-margin-top:84px;margin:36px 0 4px;display:flex;flex-direction:column;gap:6px">
         <span style="font-family:var(--sans);font-size:12px;font-weight:400;color:var(--accent)">Theme 2</span>
         <h3 style="margin:0;font-size:20px;font-weight:500;letter-spacing:-.008em;color:var(--ink)">Knowledge discovery &amp; synthesis</h3>
-        <p style="margin:0;font-family:var(--sans);font-size:12.5px;line-height:1.5;color:var(--muted2);text-wrap:pretty">Agentic systems for knowledge extraction and reasoning. See a demo for AI for Science research at <a href="https://omniknowledge-demo-agent4sci.netlify.app" target="_blank" rel="noopener">OmniScience</a>.</p>
+        <p style="margin:0;font-family:var(--sans);font-size:12.5px;line-height:1.5;color:var(--muted2);text-wrap:pretty">Agentic systems for knowledge extraction and reasoning. See more at <a href="https://colalab.ai/OmniKnowledge/" target="_blank" rel="noopener">OmniKnowledge</a>.</p>
       </div>
       <div class="knowledge-triptych"><div class="knowledge-triptych__canvas"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 470" style="display:block;width:100%;height:auto" role="img" aria-label="Finding relevant evidence within a wider information pool, structuring knowledge, and synthesising evidence">
 <title>From evidence to synthesis</title>
